@@ -6,7 +6,7 @@ weight: 6
 
 ### Delete Endpoint
 
-It is <b>important</b> to <b>delete</b> the endpoint created, when you are finished with the endpoint. Otherwise, the endpoint will continue to be charged. You can use the following SQL command to delete the endpoint and associated resources:
+It is <b>important</b> to <b>delete</b> the endpoint created, when you are finished with your predictions job. Otherwise, the endpoint will continue to be charged. You can use the following SQL command to delete the endpoint and associated resources:
 
 	EXECUTE SCRIPT IDA."SME_DELETE_SAGEMAKER_AUTOPILOT_ENDPOINT"(
  		'<ENDPOINT_NAME>', 
@@ -25,5 +25,5 @@ or in case of Multi-Factor-Authentication enabled:
  
  
 {{% notice warning %}}
-Please note, that by the execution of the deletion SQL command, the predicted UDF script will not be deleted and will not be able to run until the endpoint is restarted.
+Please note, that by the execution of the deletion SQL command, the predicted UDF script will not be deleted and will not be able to run until the endpoint is deployed again.
 {{% /notice %}}

@@ -6,10 +6,10 @@ weight: 2
 
 # Working with Exasol Cluster 
 
-Now, we will take all required steps required to deploy and operate a Exasol Database Cluster with two nodes. We will load data into the database and 
-query against it. Finally, we show how Exasol can utilize the <i>AWS SageMaker Autopilot</i> service for a simplified machine learning process.
+Now, we will take all required steps required to deploy and operate a Exasol Database Cluster with two nodes. We will start to work on the cluster
+while fullfiling different tasks. See below for a description of tasks to ensure we have an operational cluster and capable to work with AWS services.
 
-{{% notice warning %}}
+{{% notice info %}}
 The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various 
 AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in 
 production environments. Also, the Exasol Database deployment strictly follows a simplified approach and does not follow best practices in certain
@@ -25,7 +25,7 @@ not too complex SQL statement:
     <li>Install the Exasol Deployment Tool</li>
     <li>Deploy an Exasol two-node cluster environment</li>
     <li>Loading data into Exasol database natively</li>
-	<li>Testing the Deplayment</li>
-    <li>Loading data into Exasol databse with AWS Glue (optionally)</li>
-	<li>Troubleshooting</li>
+	<li>Testing the Deployment</li>
+    <li>Loading data into Exasol database with AWS Glue (optionally)</li>
+	<li>Troubleshooting (if required)</li>
 </ol>

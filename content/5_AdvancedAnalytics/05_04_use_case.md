@@ -8,14 +8,10 @@ weight: 5
 ## Use Case
 
 
-For our selected use case <i>Credit Applications</i> we will train a model which should predict if credit payments will fail partialy or in total, based on some attributes of an individual person - describing the personal situation of the applicant. The selected data set was downloaded from the website <i>kaggle</i>
-
-[Credit Card Data](https://www.kaggle.com/datasets/mishra5001/credit-card)
-	
-and has been <b>simplified</b> significantly by removing various attributes from the data set.
+For our selected use case <i>Credit Applications</i> we will train a model which should predict if credit payments will fail partialy or in total, based on some attributes of an individual person - describing the personal situation of the applicant. For the purpose this workshop the dataset has been <b>simplified</b> significantly by removing various attributes from the data set.
 
 {{% notice info %}}
-The simplication of the source date will have an impact with regards to prediction quality. We have decided to priotize <i>ease-of-use</i> over
+The simplication of the source data will have an impact with regards to prediction quality. We have decided to prioritize <i>ease-of-use</i> over
 prediction quality.
 {{% /notice %}}
 
@@ -285,8 +281,7 @@ As said before, our prediction model quality is not optimal due to the skipped a
 
 ![Confusion Matrix](/images/exasol/05_11_confusion_matrix.png)
 
-Our model has a predicion quality of 67% - feel free to experiment with different training/test sets or the number of model candidates and see if
-the prediction quality improves.
+In this training run our model has a predicion quality of 67% - feel free to experiment with different training/test sets or the number of model candidates and see if the prediction quality improves. 
 
 ### Conclusion
 

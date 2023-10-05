@@ -15,11 +15,11 @@ To start the cluster again:
 	c4 up <play_id>
 
  
-You can retrieve the <i>play_id</i> with
+You can retrieve the <i>play_id</i> with:
 
 	c4 ps
 	
-as shown below in the 2nd column
+as shown below in the 2nd column:
 
 
 ![C4 process list](/images/exasol/01_04_c4_ps_list.png)

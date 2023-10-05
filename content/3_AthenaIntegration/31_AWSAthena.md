@@ -14,16 +14,20 @@ After creating a virtual schema, you can use its tables in SQL queries and combi
 
 ### AWS Athena requirements
 
-Nevertheless, if we want to create an Athena table in the AWS Glue Data Catalog, we must first create a data source and specify a database for the table. Databases are used to organize metadata tables in the AWS Data Catalog. When you define a table in the Data Catalog, you add it to a database. A table can only belong to one database. Your database can contain tables that define data from a different data store. In our workshop we are going to use files in a Character Separated Value (CSV) format to demonstrate the idea behind Athena.
+Nevertheless, if we want to create an Athena table in the AWS Glue Data Catalog, we must first create a data source and specify a database for the table. Databases are used to organize metadata tables in the AWS Data Catalog. When you define a table in the Data Catalog, you add it to a database. A table can only belong to one database. Your database can contain tables that define data from a different data store. In our workshop we are going to use files in a Character Separated Value (CSV) format to demonstrate the idea behind Athena. For our purpose we use again the <i>CITIES</i> table from previous steps:
 
-![DIM_COUNTRY.csv](/images/athena/31_1_csv_dim_country.png)
+![DIM_COUNTRY.csv](/images/athena/03_01_cities_table.png)
 
 For the data catalog and the use of Athena therefore we need an S3 bucket and the underlying data.
 
 To get started, sign into the AWS Management Console and open the S3 console.
-As a first step, generate an appropriate S3 bucket and upload the required CSV file.
+As a first step, generate an appropriate S3 bucket with a name chosen by you and upload the required <i>CITIES.csv</i> file from the
 
-![S3 console](/images/athena/31_2_S3_bucket.png)
+	s3-aws-modernization-workshop
+
+bucket.
+
+![S3 console](/images/athena/03_02_S3_bucket.png)
 
 Amazon Athena automatically stores query results and metadata information for each query that runs in a query result location that you can specify in Amazon S3. If this is your first time to visit the Athena console in your current AWS Region, you need to set up a query result location in Amazon S3.
 

@@ -33,28 +33,19 @@ The command should return an output similar to the one shown below:
 We note the https port for the <i>bfsdefault</i> bucket file system, in our case it is port <i>2581</i> (https_port). Therefore, we use <i>https://</i>
 for all future calls to the BucketFS. If the attribute <i>http_port</i> is set we use <i>http://</i>. If both attributes for the port number are set, you have the
 choice, which one you want to use. Additionally, we create a new bucket named <i>container</i>:
+
 	
-	confd_client -c bucket_add -a '{ bucket_name: container, bucketfs_name: bfsdefault, public: False, read_password: <select_a_read_password>, write_password: <select_a_write_password> }'
+	confd_client -c bucket_add -a '{ bucket_name: container, bucketfs_name: bfsdefault, public: True, read_password: <select_a_read_password>, write_password: <select_a_write_password> }'
 		
 It is ok, that read and write passwords are the same. See below, how the <i>bucketfs_info</i> now looks alike:
 
 ![BucketFS with container bucket](/images/exasol/05_03_bucketfs_info_with_bucket_container.png)
 
-Because the attribute <i>public</i> is set to <i>false</i> you have to specify user and password in every call we do in the next steps:
-
-	https://r:<your selected password>@<server_ip_address>:<portnumer>/<bucket_name> #Read access
-	
-	or
-	
-	https://w:<your selected password>@<server_ip_address>:<portnumer>/<bucket_name> # Write access
-
-
-
 
 Note that your chosen passwords are stored encrypted. Now, we need to download the container file and upload it to the freshly created bucket. You will
 find it 
 
-	https://github.com/exasol/sagemaker-extension/releases/download/0.5.0/exasol_sagemaker_extension_container-release-CYEVORMGO3X5JZJZTXFLS23FZYKIKDG7MVNUSSJK6FUST5WRPZUQ.tar.gz
+[Exasol Sagemaker Extenseion](https://github.com/exasol/sagemaker-extension/releases/download/0.5.0/exasol_sagemaker_extension_container-release-CYEVORMGO3X5JZJZTXFLS23FZYKIKDG7MVNUSSJK6FUST5WRPZUQ.tar.gz)
 
 For ease of use, rename the downloaded file to 
 

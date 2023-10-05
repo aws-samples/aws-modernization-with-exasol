@@ -8,7 +8,7 @@ weight: 1
 
 In this workshop, you’ll learn how to implement a modern data warehouse ecosystem by deploying Exasol on AWS. As a data analytics platform not only consists of a relational database management system, we will learn in this workshop how a data pipeline that moves the data from the source all the way to the visualization layer is implemented. We will leverage the complementary analytics solutions AWS provides for these tasks. The result will be a fully-fledged analytics stack with which you can run self-service analytics and even execute advanced analytics like AI/ML.
 
-## Learning Objectives <!-- MODIFY THIS SUBHEADING -->
+## Learning Objectives 
 
 
 
@@ -19,3 +19,6 @@ In this workshop, you’ll learn how to implement a modern data warehouse ecosys
 -	And you will do advanced analytics using AWS Sagemaker in combination with Exasol.
 
 
+{{% notice warning %}}
+The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
+{{% /notice %}}

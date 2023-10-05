@@ -6,7 +6,7 @@ weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICAB
 
 # Prerequisites
 
-For a succcesful Exasol Cluster deployment and the following steps in workshop we have to fullfil certain requirements. Please finish all the prerequistes before moving on to the workshop itself.
+For a succcesful Exasol Cluster deployment and the following steps in the workshop we have to fullfil certain requirements. Please finish all the prerequistes before moving on to the workshop itself.
 
 ## AWS Access Key
 
@@ -15,9 +15,14 @@ If not already done, we need to fulfill a few prerequisites before we can deploy
 
 	https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html?icmpid=docs_iam_console#Using_CreateAccessKey
 	
-If you have configured Multi-Factor-Authentication with your AWS account, have your Authenticator device ready, e.g. your smartphone with a supported 
-Authentictor app. Please be aware that when you have an account with <i>Multi Factor Authentication</i> enabled, you have to provide a <i>One Time Token</i>
-on a regular basis, especially when you perform this workshop self-paced over a longer period of time.
+
+{{% notice warning %}}
+It is mandatory that you have Multi-Factor-Authentiction (MFA) enabled for your account.
+{{% /notice %}}
+
+See the official documentation from AWS to see how MFA is being enabled for your user account:
+
+![Enabling Multi-Factor-Authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html)
 
 
 ## Data Sources and support content
@@ -36,7 +41,7 @@ If you want to work with your own S3 Bucket, please copy the files from the publ
 
 ## Deployment Instance
 
-Deploying an Exasol Analytics Database cluster environment requires a so-called <i>Deployment Server</i> from where you configure and initiate the deplyoment, as well as operate the cluster. This can be a new instance, <i>AWS Cloudshell</i> or an exsting instance you have. We want to avoid any kind of side-effects and opt for a new
+Deploying an Exasol Analytics Database cluster environment requires a so-called <i>Deployment Server</i> from where you configure and initiate the deplyoment, as well as operate the cluster. This can be a new instance, or an exsting instance you have. We want to avoid any kind of side-effects and opt for a new
 AWS instance. When launching a new instance select Ubuntu for version 20.04.1. There exists an Amazon Machine Image (AMI) you can select which is <i>“Free tier eligible”</i>.  The instance type can be a  <i>“t2.micro”</i>. For the remaining settings, just go with the default values and create a key pair for login, if you do not have one in place already. Be sure to check “Allow SSH traffic from” if you want to use your own SSH capable terminal. The private key will be downloaded to your computer, automatically
 
 ![Creating Deployment Server](/images/exasol/01_01_Creating_Deployment_Server.png)
@@ -48,7 +53,7 @@ you connect to the instance with the AWS provided web interface by selecting you
 ![Connect to Deployment Server](/images/exasol/01_02_Connect_to_Deployment_Server.png)
 
 
-Once the new instance is started, it is it is a good practice to update the system properly:
+Once the new instance is started, it is a good practice to update the system properly:
 
 	sudo apt-get update && sudo apt-get dist-upgrade
 	

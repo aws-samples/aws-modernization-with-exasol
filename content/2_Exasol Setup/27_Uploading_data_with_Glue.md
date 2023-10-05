@@ -18,6 +18,7 @@ for the set up of the policies and roles required.
 Also, before we can start to use AWS Glue, we need to deal with the Exasol connector, which is not in the default list for data sources or targets. To prepare for the Exasol AWS Glue Connector follow the steps outlined on Exasol’s Github repository
 
 [Exasol AWS Glue Connector User Guide](https://github.com/exasol/glue-connector/blob/main/doc/user_guide/user_guide.md)
+[Exasol AWS Glue Connector on AWS](https://aws.amazon.com/marketplace/pp/prodview-2mlebkenfsg7o)
 
 
 until the step <i>Creating a Job</i>, which we will do differently.
@@ -48,7 +49,7 @@ You will get into the Visual editor for creating an ETL job – with a clean can
 First, rename this ETL job and give it meaningful name e.g. S3_2_CITIES. Then select from the <i> Add Nodes</i> window <i>Amazon S3 (source)</i>, it is the upper left button. 
 
 As a result, there should be only the <i>S3 Bucket (source)</i>. Let’s start configuring the source node for our <i>CITIES</i>
-Table. Select the node and ithin the right <i>Settings</i> pane, press “Browse S3”, select your S3 Bucket containing all source files and select “CITIES.csv”. Select CSV for the data format, uncheck <i>First line of source file contains column header</i>, press the <i>Infer schema</i> button and leave all the other options as displayed. Your form should look similar to the screenshot below:
+Table. Select the node and within the right <i>Settings</i> pane, press “Browse S3”, select your S3 Bucket containing all source files and select “CITIES.csv”. Select CSV for the data format, uncheck <i>First line of source file contains column header</i>, press the <i>Infer schema</i> button and leave all the other options as displayed. Your form should look similar to the screenshot below:
 
 ![S3 Source Settings](/images/exasol/01_13_glue_s3_source_settings.png)
   

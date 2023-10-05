@@ -13,7 +13,7 @@ the backend for Machine Learning.
 
 ### AWS Sagemaker Autopilot Service
 
-AWS SageMaker is an AWS public cloud service in which users can build and deploy machine learning models. SageMaker provides a number of levels of abstraction to users while developing machine learning models. At one of the its highest level of abstraction, SageMaker enables users to use an Automated Machine Learning (AutoML) service, called Autopilot in AWS, that automatizes the process of applying machine learning to real world problems.
+AWS SageMaker is an AWS public cloud service in which users can build and deploy machine learning models. SageMaker provides a number of levels of abstraction to users while developing machine learning models. At one of its highest level of abstraction, SageMaker enables users to use an Automated Machine Learning (AutoML) service, called Autopilot in AWS, that automatizes the process of applying machine learning to real world problems.
 
 Autopilot covers a complete pipeline of developing an end-to end machine learning project, from raw data to a deployable model. It is able to automatically build, train and tune a number of machine learning models by inspecting your data set. In this way, the following tasks, which are repeatedly applied by ML-experts in machine learning projects, are automated:
 
@@ -25,7 +25,7 @@ Autopilot covers a complete pipeline of developing an end-to end machine learnin
 	<li>Post-process machine learning models</li>
 </ol>
 
-The Exasol Sagemaker Extension takes these advantages of AWS Autopilot and enables users to easily create an effective and efficient machine learning models without expert knowledge.
+The Exasol Sagemaker Extension takes these advantages of AWS Autopilot and enables users to easily create effective and efficient machine learning models without expert knowledge.
 
 ### Exasol SageMaker Extension
 
@@ -74,7 +74,7 @@ and add two policies to add, firstly:
 	    ]
 	}
 	
-and name it sagemaker-s3-access. For the second policy for this role aearch for and select
+and name it sagemaker-s3-access. For the second policy for this role search for and select
 
 	AmazonSageMakerFullAccess
 	

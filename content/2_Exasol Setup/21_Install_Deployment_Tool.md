@@ -10,7 +10,7 @@ weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 # Exasol Deployment Tool
 
 The deployment of an Exasol Database Cluster is a fully automated approach, where you specify installation attributes the deployment tool acts on.
-It is nearly the same effort to configure a simple two-node cluster or a powerful 16-node cluster with "StandBy-Nodes" and "Access-Node".
+It is nearly the same effort to configure a simple two-node cluster or a powerful 10-node cluster with so-called <i>StandBy-Nodes</i> and <i>Access-Node</i>.
 
 
 
@@ -53,6 +53,7 @@ Create a config file named <i>config</i> in the previously created directory as 
 	CCC_AWS_REGION=<your desired AWS region>
 	CCC_AWS_KEY_PAIR=<name of your key pair>
 	CCC_AWS_KEY_PAIR_FILE=<filename of your key pair>
+	CCC_PLAY_DB_PARAMS='-tlsConnectionsOnly=0 -forceProtocolEncryption=0'
 	CCC_PLAY_LICENSE=@license:v8-byol
 
 There are more options available for this config files, however we do not need to consider for the time being. If you are interested
@@ -82,17 +83,15 @@ you should see a result similar to the one below:
 	CCC_PLAY_DB_PASSWORD=simple\*db\*password
 	CCC_PLAY_LICENSE=@license:v8-byol
 	CCC_USER_EMAIL=xxx.yyy@zzz.aa
+	CCC_PLAY_DB_PARAMS='-tlsConnectionsOnly=0 -forceProtocolEncryption=0'
 	CCC_USER_PASSWORD=simple\*user\*password
 
 {{% notice info %}}	
 For this workshop, please do <b>not</b> add, change or remove settings to the config file, where not advised to do so.
 </br></br>
-This configuration automatically installs a license with expiration date and allowes a reasonable number of nodes in a cluster. However, the license
+This configuration automatically installs a license with no expiration date and allows a reasonable number of nodes in a cluster. However, the license
 restricts the amount of data stored in the entire cluster to 10Gbytes of raw data. It is comparable to the license of the Exasol image for Docker.
-
 {{% /notice %}}
-
-
 
 
 Next, we need to check the previous steps with
@@ -107,7 +106,7 @@ You should receive a response similar to the one shown below:
 	OK aws tools credentials are correct
 	OK exasol aws account is accessible
 	OK Private AWS SSH access key file found
-	OK CCC_USER_EMAIL set to '<your email address>'
+	OK CCC_USER_EMAIL set to '<your email ddress>'
 
 
 <!-- ![Configuring the c4 Deployment Tool](/images/exasol/01_03_Configure_c4_aws.png) -->

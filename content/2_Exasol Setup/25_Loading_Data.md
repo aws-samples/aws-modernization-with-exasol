@@ -85,29 +85,29 @@ However, we define a so-called "Distribution Key" per table, which instructs Exa
 Next, we need to create a connection from the database to the S3 bucket. Issue the following command in your SQL client. The key information are the id and secret from your personal AWS Access Key, the connection name is your personal choice: 
 
 	CREATE CONNECTION S3_EXASOL_DATA 
-    TO ‘https://s3-aws-modernization-workshop.s3-eu-central-1.amazonaws.com
-	USER ‘<your-personal-key-id>’
+    TO 'https://s3-aws-modernization-workshop.s3-eu-central-1.amazonaws.com'
+	USER '<your-personal-key-id>'
 	IDENTIFIED BY ‘<your-personal-secret-key>';
 
 Now, we can import the previously uploaded data files into the database. If you want to see how data can be uploaded with Amazon’s <i>AWS Glue</i> ETL service, leave the <i>CITIES</i> table untouched:
 
 	IMPORT INTO RETAIL.ARTICLE FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/ARTICLE.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/ARTICLE.csv';
 
 	IMPORT INTO RETAIL.CITIES FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/CITIES.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/CITIES.csv';
 
 	IMPORT INTO RETAIL.DIM_DATE FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/DIM_DATE.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/DIM_DATE.csv';
 
 	IMPORT INTO RETAIL.MARKETS FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/MARKETS.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/MARKETS.csv';
 
 	IMPORT INTO RETAIL.SALES FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/SALES.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/SALES.csv';
 
 	IMPORT INTO RETAIL.SALES_POSITIONS FROM CSV AT S3_EXASOL_DATA
-	FILE ‘SOURCE_DATA/RETAIL_MINI/SALES_POSITIONS.csv’;
+	FILE 'SOURCE_DATA/RETAIL_MINI/SALES_POSITIONS.csv';
 
 After importing the data, you can check if everything works fine by executing the SQL query below:
 

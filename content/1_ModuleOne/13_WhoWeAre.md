@@ -6,20 +6,10 @@ weight: 3 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICAB
 
 # Who Are We? <!-- MODIFY THIS HEADING TO REFLECT THE PROBLEM THE WORKSHOP IS ADDRESSING -->
 
-## Amazon Web Services (AWS)
-
-Cloud computing with AWS
-
-Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing startups, largest enterprises, and leading government agencies—are using AWS to lower costs, become more agile, and innovate faster.
 
 ## b.telligent
 
-Our Mission
-
-In the world of data b.telligent finds and utilizes hidden potentials.
-By developing intelligent solutions, we enable our customers to consistently operationalize this knowledge.
-We use trend-setting technologies, business acumen and a passion for data to enhance our customers’ success here.
-What distinguishes us is a corporate culture of trust and appreciation, our employees’ expertise and integrity, and a network of strong partners.
+b.telligent is a data-driven consultancy specializing in finding and utilizing hidden potentials. They achieve this by developing intelligent solutions that allow their customers to effectively apply this knowledge. They leverage trend-setting technologies, business acumen, and a passion for data to enhance their customers success. What sets them apart is a corporate culture built on trust and appreciation, highly skilled employees with integrity, and a network of strong partners. With over 300 employees across ten locations in Germany, Austria, Romania, and Switzerland, b.telligent supports businesses throughout all project phases, from strategy and analysis to design, implementation, ongoing operations, and further solution development. Their primary focus lies in optimizing digital and data-driven business processes, as well as customer and supplier relationships."
 
 
 
