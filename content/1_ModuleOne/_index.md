@@ -1,38 +1,21 @@
 ---
-title: "test tle"
+title: "Introduction"
 chapter: true
 weight: 1
 ---
 
 # Introduction
 
+In this workshop, you’ll learn how to implement a modern data warehouse ecosystem by deploying Exasol on AWS. As a data analytics platform not only consists of a relational database management system, we will learn in this workshop how a data pipeline that moves the data from the source all the way to the visualization layer is implemented. We will leverage the complementary analytics solutions AWS provides for these tasks. The result will be a fully-fledged analytics stack with which you can run self-service analytics and even execute advanced analytics like AI/ML.
+
 ## Learning Objectives <!-- MODIFY THIS SUBHEADING -->
 
-This paragraph block should highlight the learning objectives of the workshop. A bulleted list works well for this purpose.
 
-## Workshop Structure <!-- MODIFY THIS SUBHEADING -->
-This paragraph block should be utilized to briefly explain the submodules that are going to be presented as well as the approximate total time for the workshop and individual submodules. <br>
 
-For example:
-<ul>
-    <li> Prerequisites *(15 minutes)* </li>
-    <li> Setting up an account for the solution *(15 minutes)* </li>
-    <li> Module 1: Module 1 Title *(30 minutes)* </li>
-    <li> Module 2: Module 2 Title *(30 minutes)* </li>
-    <li> Module 3: Module 3 Title *(30 minutes)* </li>
-</ul>
+-	You’ll get hands-on experience on setting up an Exasol database in your own AWS account
+-	You’ll build a data pipeline that ingests data from Amazon S3 into Exasol and prepares it to be analyzed in Amazon QuickSight.
+-	You will integrate other data using the AWS Glue Data Catalog and Amazon Athena by making use of Exasol’s virtual schemas. 
+-	You’ll build a Dashboard with AWS Quicksight to visualize the processed data and experience the performance and ease of use of Exasol running on AWS.
+-	And you will do advanced analytics using AWS Sagemaker in combination with Exasol.
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
 
-**REMOVE:** Every introduction page should include the following warning label.
-
-{{% notice warning %}}
-The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
-{{% /notice %}}
-
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.

@@ -1,7 +1,7 @@
 
 :root{
 
-    --MAIN-TEXT-color:#323235; /* Color of text by default */
+    --MAIN-TEXT-color: #323235; /* Color of text by default */
     --MAIN-TITLES-TEXT-color: #778ba5; /* Color of titles h2-h3-h4-h5 */
     --MAIN-LINK-color:#4881cd; /* Color of links */
     --MAIN-LINK-HOVER-color:#599af1; /* Color of hovered links */
@@ -151,4 +151,9 @@ div.notices p:first-child:before {
 
 #chapter p, #chapter h3 {
     text-align: left;
+}
+
+.article-style img {
+	
+	display: inline-block;
 }
