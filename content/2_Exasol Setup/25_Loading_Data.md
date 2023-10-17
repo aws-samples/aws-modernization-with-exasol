@@ -78,7 +78,7 @@ We need to load some data into the database. For the time being, we import data 
         SALES_DATE DATE
     );
 
-It is notable, that Exasol does <b>not</b> define indexes for an accelerated access to the required data. Exasol will create indexes automatically during 
+It is notable, that Exasol does **not** define indexes for an accelerated access to the required data. Exasol will create indexes automatically during 
 the execution of a SQL query - based on the evaluation of the SQL statement - and maintains the index for further operations. Indexes not used for more than 35 days (5 weeks) will be removed from the system. If a query is slow when executed for the first time, execute it a second time, so it utilizes the newly created index. 
 However, we define a so-called "Distribution Key" per table, which instructs Exasol how to distribute data amongst the cluster nodes.
 
@@ -89,7 +89,7 @@ Next, we need to create a connection from the database to the S3 bucket. Issue t
 	USER '<your-personal-key-id>'
 	IDENTIFIED BY ‘<your-personal-secret-key>';
 
-Now, we can import the previously uploaded data files into the database. If you want to see how data can be uploaded with Amazon’s <i>AWS Glue</i> ETL service, leave the <i>CITIES</i> table untouched:
+Now, we can import the previously uploaded data files into the database. If you want to see how data can be uploaded with Amazon’s _AWS Glue_ ETL service, leave the _CITIES_ table untouched:
 
 	IMPORT INTO RETAIL.ARTICLE FROM CSV AT S3_EXASOL_DATA
 	FILE 'SOURCE_DATA/RETAIL_MINI/ARTICLE.csv';
@@ -140,5 +140,5 @@ You should receive a query result, giving you an overview about basic sales perf
 
 ![Result from Testquery](/images/exasol/01_09_test_result.png)
 
-Great! We have an operational cluster, let's continue to the next step
+Great! We have an operational cluster, let's continue to the next step.
 

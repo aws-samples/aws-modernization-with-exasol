@@ -21,8 +21,8 @@ A Virtual Schema installation consists of these general steps:
 
 ### Prepare the JDBC Driver installation
 
-For installing JDBC drivers we need to upload the driver and a config file into the <i>Bucket File System (bucketfs)</i> of the Exasol database.
-As a first step we ensure correct settings and an easy password for the purpose of this tutorial for the <i>default</i> bucket. Execute the follwoing steps, assuming you have only one cluster deployed:
+For installing JDBC drivers we need to upload the driver and a config file into the _Bucket File System (bucketfs)_ of the Exasol database.
+As a first step we ensure correct settings and an easy password for the purpose of this tutorial for the _default_ bucket. Execute the follwoing steps, assuming you have only one cluster deployed:
 
 	c4 connect -t1/cos
 	
@@ -37,7 +37,7 @@ followed by
 You should be on your deplyoment host again.
 
 {{% notice info %}}
-Ensure that the <i>public</i> attribute  for the <i>default</i> bucket is set to <i>True</i>, as it is <b>mandatory</b> for the steps to follow.
+Ensure that the _public_ attribute  for the _default_ bucket is set to _True_, as it is **mandatory** for the steps to follow.
 {{% /notice %}}
 
 
@@ -56,8 +56,8 @@ In a shell go to the location where the JDBC driver has been downloaded to and i
 
 ### Register the Athena JDBC driver
 
-The Exasol V8 database needs some informtion about the driver you intend to upload. We create a config file named <i>settings.cfg</i> and add
-the following settings, e.g. with the <i>vi</i> editor:
+The Exasol V8 database needs some informtion about the driver you intend to upload. We create a config file named _settings.cfg_ and add
+the following settings, e.g. with the _vi_ editor:
 
 	DRIVERNAME=ATHENA_JDBC_DRIVER
 	JAR=AthenaJDBC42-2.1.1.1000.jar
@@ -67,14 +67,12 @@ the following settings, e.g. with the <i>vi</i> editor:
 	FETCHSIZE=100000
 	INSERTSIZE=-1
 	
-The <i>DRIVERNAME</i> parameter can be named anything in order to support a meaningful naming convention. The other JDBC related parameters are
+The _DRIVERNAME_ parameter can be named anything in order to support a meaningful naming convention. The other JDBC related parameters are
 individual to a specific JDBC driver and be be looked up in the respective documentation of the particular driver.
 
 {{% notice info %}}
-Under no circumstances change the last two parameters <i>FETCHSIZE</i> and <i>INSERTSIZE</i>.
-</br></br>
-Ensure that every single line ends with <i><Newline/i>character, otherwise the registration of the JDBC driver will fail.
-</br></br>
+Under no circumstances change the last two parameters _FETCHSIZE_ and _INSERTSIZE_.\
+Ensure that every single line ends with _Newline_ character, otherwise the registration of the JDBC driver will fail.\
 Check carefully the version number of the Athena JDBC driver, as it may be updated at any given time.
 {{% /notice %}}
 
@@ -100,9 +98,9 @@ In the next step we will create a connection object in the Exasol database.
       USER '<AWS_ACCESS_KEY_ID>'
       IDENTIFIED BY '<AWS_SECRET_ACCESS_KEY>';
 
-The JDBC parameter <i>AwsRegion</i> specifies the region in which the Athena service has been created in aws. The further parameter <i>S3OutputLocation</i> specifies the location in which bucket the Athena results should be stored. To make this work without issues, the appropriate permissions and roles for the aws ACCESS_KEY must be set as well.
+The JDBC parameter _AwsRegion_ specifies the region in which the Athena service has been created in aws. The further parameter _S3OutputLocation_ specifies the location in which bucket the Athena results should be stored. To make this work without issues, the appropriate permissions and roles for the aws ACCESS_KEY must be set as well.
 
-Exasol's Virtual Schema already uses the <i>IMPORT</i> statement in the background to retrieve the data from the source database. However, this method is less comfortable and does not map the different data types to the Exasol data types. But with this method it is easy to check if the JDBC connection is working correctly.
+Exasol's Virtual Schema already uses the _IMPORT_ statement in the background to retrieve the data from the source database. However, this method is less comfortable and does not map the different data types to the Exasol data types. But with this method it is easy to check if the JDBC connection is working correctly.
 
     SELECT *
     FROM (
@@ -116,7 +114,7 @@ Exasol's Virtual Schema already uses the <i>IMPORT</i> statement in the backgrou
 ### Upload Virtual Schema Adapter to Exasol
 
 
-For configuring a <i>Virtual Schema</i> in Exasol we need to upload another Java archive file. Please keep in mind that every supported data source for a Virtual Schema requires its own java archive - you can not interchange them! In case your data source is not supported you may use the Java archive / package for generic
+For configuring a _Virtual Schema_ in Exasol we need to upload another Java archive file. Please keep in mind that every supported data source for a Virtual Schema requires its own java archive - you can not interchange them! In case your data source is not supported you may use the Java archive / package for generic
 data sources. For more details visit:
 
 [Exasol Virtual Schema on Github](https://github.com/exasol/virtual-schemas)
@@ -134,7 +132,7 @@ end
 
 	exit
 	
-You now have created a new bucket, named <i>jars</i>, where we can store our java archive files.
+You now have created a new bucket, named _jars_, where we can store our java archive files.
 	
 We have the JDBC driver for Athena, which we need for a virtual schema, already installed in the previous step. We do not need to install it again.
 We just need to reference it accordingly, which we will do in the next step...
@@ -155,7 +153,7 @@ Now we are ready to generate the Adapter script, but first we need to adjust the
     /
 
 
-The script is now available, in the last and final step we need to execute the <i>CREATE VIRTUAL SCHEMA</i> statement
+The script is now available, in the last and final step we need to execute the _CREATE VIRTUAL SCHEMA_ statement
 
     CREATE VIRTUAL SCHEMA VS_ATHENA_WORKSHOP
      USING ADAPTER.JDBC_ATHENA_ADAPTER
@@ -163,8 +161,8 @@ The script is now available, in the last and final step we need to execute the <
      CONNECTION_NAME = 'AWS_ATHENA'
      SCHEMA_NAME = 'retail_mini';
 
-The Exasol Virtual Schema is now created and can be used like a native schema within Exasol. We join a the <i>CITIES</i> table from our Virtual Schema stores in a
-S3 bucket on AWS with the <i>MARKETS</i> table from our RETAIL schema stored on Exasol
+The Exasol Virtual Schema is now created and can be used like a native schema within Exasol. We join a the _CITIES_ table from our Virtual Schema stores in a
+S3 bucket on AWS with the _MARKETS_ table from our RETAIL schema stored on Exasol
 
 	SELECT * 
 
@@ -189,19 +187,19 @@ Once the virtual schema has been created, users can be granted access to it. You
 
 ![SCRIPT ADAPTER.LS](/images/athena/33_12_Virtual_Schema.png)
 
-Setting the <i>TABLE_FILTER</i> to NULL removes that limitation again.
+Setting the _TABLE_FILTER_ to NULL removes that limitation again.
 
     ALTER VIRTUAL SCHEMA VS_ATHENA_WORKSHOP 
     SET TABLE_FILTER = null;
 
-DML is not allowed, the <i>UPDATE</i> command will fail with an error message.
+DML is not allowed, the _UPDATE_ command will fail with an error message.
 
 ![SCRIPT ADAPTER.LS](/images/athena/33_13_Virtual_Schema.png)
 
-A <i>REFRESH</i> statement is also required after objects have been added to the remote schema or if existing table structures were changed.
+A _REFRESH_ statement is also required after objects have been added to the remote schema or if existing table structures were changed.
 
     ALTER VIRTUAL SCHEMA VS_ATHENA_WORKSHOP REFRESH;
 
-A <i>DROP VIRTUAL SCHEMA</i> statement will only remove the declaration of the virtual schema from Exasol. The tables residing on the remote source will not be affected.
+A _DROP VIRTUAL SCHEMA_ statement will only remove the declaration of the virtual schema from Exasol. The tables residing on the remote source will not be affected.
 
     DROP VIRTUAL SCHEMA VS_ATHENA_WORKSHOP CASCADE;

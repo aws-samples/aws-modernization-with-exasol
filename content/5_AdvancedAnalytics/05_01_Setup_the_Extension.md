@@ -10,18 +10,17 @@ weight: 1
 
 The SageMaker Extension for Exasol consists of two parts:
 
-<ol>
-	<li> A Python Package, which deploys scripts to the database</li>
-	<li> A container file which interfaces with the SageMaker Autopilot</li>
-</ol>
+
+- A Python Package, which deploys scripts to the database
+- A container file which interfaces with the SageMaker Autopilot
 	
-In order to use the <i>Exasol SageMaker Extension</i>, it is necessary to install the python package of the extension , upload the given <i>SageMaker Extension Container</i> into BucketFS and then activate the uploaded container in Exasol. These pre-packaged releases are available in the Releases of the Github repository.
+In order to use the _Exasol SageMaker Extension_, it is necessary to install the python package of the extension , upload the given _SageMaker Extension Container_ into BucketFS and then activate the uploaded container in Exasol. These pre-packaged releases are available in the Releases of the Github repository.
 
 Before starting the installation, we need to discover some settings from the database. Start a terminal shell on the first cluster node with
 
 	c4 connect -t1/cos
 	
-and let the database display its settings for the so-called <i>Bucket File System (BucketFS)</i>. The BucketFS is a specific location within the database
+and let the database display its settings for the so-called _Bucket File System (BucketFS)_. The BucketFS is a specific location within the database
 for storing supporting files, e.g additional packages for scripting languages (Python, Java, R), extensions or 3rd party jdbc drivers:
 
 	confd_client -c bucketfs_info -a 'bucketfs_name: bfsdefault'
@@ -30,14 +29,14 @@ The command should return an output similar to the one shown below:
 	
 ![BucketFS Info](/images/exasol/05_02_bucketfs_info.png)
 
-We note the https port for the <i>bfsdefault</i> bucket file system, in our case it is port <i>2581</i> (https_port). Therefore, we use <i>https://</i>
-for all future calls to the BucketFS. If the attribute <i>http_port</i> is set we use <i>http://</i>. If both attributes for the port number are set, you have the
-choice, which one you want to use. Additionally, we create a new bucket named <i>container</i>:
+We note the https port for the _bfsdefault_ bucket file system, in our case it is port _2581_ (https_port). Therefore, we use _https://_
+for all future calls to the BucketFS. If the attribute _http_port_ is set we use _http://_. If both attributes for the port number are set, you have the
+choice, which one you want to use. Additionally, we create a new bucket named _container_:
 
 	
 	confd_client -c bucket_add -a '{ bucket_name: container, bucketfs_name: bfsdefault, public: True, read_password: <select_a_read_password>, write_password: <select_a_write_password> }'
 		
-It is ok, that read and write passwords are the same. See below, how the <i>bucketfs_info</i> now looks alike:
+It is ok, that read and write passwords are the same. See below, how the _bucketfs_info_ now looks alike:
 
 ![BucketFS with container bucket](/images/exasol/05_03_bucketfs_info_with_bucket_container.png)
 
@@ -45,7 +44,7 @@ It is ok, that read and write passwords are the same. See below, how the <i>buck
 Note that your chosen passwords are stored encrypted. Now, we need to download the container file and upload it to the freshly created bucket. You will
 find it 
 
-[Exasol Sagemaker Extenseion](https://github.com/exasol/sagemaker-extension/releases/download/0.5.0/exasol_sagemaker_extension_container-release-CYEVORMGO3X5JZJZTXFLS23FZYKIKDG7MVNUSSJK6FUST5WRPZUQ.tar.gz)
+[Exasol Sagemaker Extension](https://github.com/exasol/sagemaker-extension/releases/download/0.5.0/exasol_sagemaker_extension_container-release-CYEVORMGO3X5JZJZTXFLS23FZYKIKDG7MVNUSSJK6FUST5WRPZUQ.tar.gz)
 
 For ease of use, rename the downloaded file to 
 
@@ -67,7 +66,7 @@ The following example uploads the pre-built SageMaker-Extension Container to Buc
     	"https://w:<your_previously_created_write_password>@<ip address of a cluster node>:<identified_port_number>/container/exasol_sagemaker_extension_container-release.tar.gz"
 
 
-You need to activate the uploaded container for your session or the whole system through adjusting parameter SCRIPT_LANGUAGES. Please keep in mind, that the name of the language alias is assumed to be <i>PYTHON3_SME</i> in the SageMaker-Extension. For more details about adding new packages to existing script languages check the following web page:
+You need to activate the uploaded container for your session or the whole system through adjusting parameter SCRIPT_LANGUAGES. Please keep in mind, that the name of the language alias is assumed to be _PYTHON3_SME_ in the SageMaker-Extension. For more details about adding new packages to existing script languages check the following web page:
 
 	https://docs.exasol.com/db/latest/database_concepts/udf_scripts/adding_new_packages_script_languages.htm
 

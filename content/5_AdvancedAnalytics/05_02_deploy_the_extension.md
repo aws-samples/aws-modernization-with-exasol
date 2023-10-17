@@ -14,10 +14,10 @@ For our use case, we will use two database schemas, one for training, and one fo
 	CREATE SCHEMA CREDIT_PREDICTION;
 	
 	
-The latter one we are using for storing the automatically generated <i>Predictor</i> user defined function (UDF).
+The latter one we are using for storing the automatically generated _Predictor_ user defined function (UDF).
 
 The installed SageMaker extension python package provides a command-line interface (CLI), enabling you to deploy all necessary Lua and UDF scripts into the
-<i>CREDIT</i> database schema. The command line is run from the Exasol deployment server as follows:
+_CREDIT_ database schema. The command line is run from the Exasol deployment server as follows:
 
 	python -m exasol_sagemaker_extension.deployment.deploy_cli
     	--host <IP address of 1st node of your database>

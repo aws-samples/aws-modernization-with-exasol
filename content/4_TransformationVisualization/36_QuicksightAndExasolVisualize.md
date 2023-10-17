@@ -6,7 +6,7 @@ weight: 4
 
 # Analyze and Visualize your Dataset
 
-To create an analysis from the newly created <i>V_SIMPLE_SALES</i> dataset navigate to the <i>Datasets</i> page. Locate the <i>V_SIMPLE_SALES</i> dataset and click on the three dots and select "Create analysis".
+To create an analysis from the newly created _V_SIMPLE_SALES_ dataset navigate to the _Datasets_ page. Locate the _V_SIMPLE_SALES_ dataset and click on the three dots and select "Create analysis".
 
 ![QS_create_analysis](/images/quicksight/15_QS_create_analysis.PNG)
 
@@ -18,9 +18,9 @@ Choose the "Interactive sheet" option and click "Create".
 
 For this tutorial, as we start, we will query over the entire data set, "leaving date and time out of the equation." In principal, using date and/or time is not different from what we will prepare now.
 
-First select <i>Pivot Table</i> visual from the icons menu in the lower left corner, then select <i>area</i>, <i>city_name</i> <i>PRICE</i>
+First select _Pivot Table_ visual from the icons menu in the lower left corner, then select _area_, _city_name_ _PRICE_
 from the list. You will see that QuickSight is assigning dimensional data to the rows section and metrics to the values section. Click in the upper right corner
-onto the three vertical dots and select <i>Show Subtotals for Rows</i> and <i>Show Totals for Rows</i>.
+onto the three vertical dots and select _Show Subtotals for Rows_ and _Show Totals for Rows_.
 
 
 ![First Query](/images/quicksight/16a_QS_create_sheet.png)
@@ -31,12 +31,12 @@ outside of the active pane to deselect the active view.
 
 
 {{% notice info %}}
-If you wonder for the slower than expected query response time, please remember that the <i>CITIES</i> table is residing as a textual file in a S3 bucket and
+If you wonder for the slower than expected query response time, please remember that the _CITIES_ table is residing as a textual file in a S3 bucket and
 not in the database itself. Querying this table requires an additional overhead, compared to querying a table stored in the database.
 {{% /notice %}}
 
 
-Again, select the same fields as before and click and the left side on <i>Insights</i>. QuickSight will take a few moments and offer you adequate
+Again, select the same fields as before and click and the left side on _Insights_. QuickSight will take a few moments and offer you adequate
 first analytical queries based on the selected fields.
 
 ![Insights](/images/quicksight/16b_QS_insights.png)
@@ -46,14 +46,14 @@ If you hover with the mouse over the suggestions a "plus" sign appears. Press it
 ![Insights](/images/quicksight/16c_QS_insights.png)
 
 
-Finally, select the new visual which shows the result of your selected <i>Insights</i> suggestion. Click on the left side into filters and then
-<i>Add Filter</i>. Select the <i>area_short</i> field and fill the form as shown below:
+Finally, select the new visual which shows the result of your selected _Insights_ suggestion. Click on the left side into filters and then
+_Add Filter_. Select the _area_short_ field and fill the form as shown below:
 
 ![Insights](/images/quicksight/16d_QS_filter.png)
 
-You will see that the result of the <i>Insights</i> visual will change and adapt to the select area. The way we created this filter was that the filter only
-influences this single visual. Let's change this to <i>All Visuals of this Dataset</i>. Apply the filter again and all visuals will adapt the results accordingly.
-Also, each visual now offers a <i>funnel icon</i> which represents one or more filters:
+You will see that the result of the _Insights_ visual will change and adapt to the select area. The way we created this filter was that the filter only
+influences this single visual. Let's change this to _All Visuals of this Dataset_. Apply the filter again and all visuals will adapt the results accordingly.
+Also, each visual now offers a _funnel icon_ which represents one or more filters:
 
 
 ![Insights](/images/quicksight/16e_QS_funnel_for_filter.png)
@@ -63,7 +63,7 @@ Also, in the filters menu you can place the filter onto the canvas, so it is vis
 Each visual, when selected, can be re-sized or moved freely around for an individual layout. Also, you can change the type of visualization at any time. Try it yourself.
 
  
-We want to extend the dashboard with the <i>ARTICLES</i> dimension. Therefore we need to modify our view on the database. Execute the following SQL
+We want to extend the dashboard with the _ARTICLES_ dimension. Therefore we need to modify our view on the database. Execute the following SQL
 statement on the database to modify our view:
 
 	CREATE OR REPLACE VIEW V_SIMPLE_SALES AS( 
@@ -85,8 +85,8 @@ statement on the database to modify our view:
 			 ARTICLE A                 ON SP.ARTICLE_ID = A.ARTICLE_ID
 			 
 
-If you are wondering why we added two tables instead of one, the <i>RETAIL.SALES_POSITIONS</i> table acts as a linking table to the <i>RETAIL.ARTICLE</i> table.
-In case you decide to query the <i>CITIES</i> table direct from the database instead from the virtual schema, execute the following SQL statement:
+If you are wondering why we added two tables instead of one, the _RETAIL.SALES_POSITIONS_ table acts as a linking table to the _RETAIL.ARTICLE_ table.
+In case you decide to query the _CITIES_ table direct from the database instead from the virtual schema, execute the following SQL statement:
 
 	CREATE OR REPLACE VIEW V_SIMPLE_SALES AS( 
 		SELECT 	C."city_id",
@@ -110,18 +110,18 @@ In case you decide to query the <i>CITIES</i> table direct from the database ins
 Both views will produce the same results, the second view should show a much improved query response time.
 
 
-Go back to QuickSight in our <i>Analysis</i> and click onto the pencil right next to our dataset name we are working on. On the pop-up press the
-the dots and click <i>Edit</i>.
+Go back to QuickSight in our _Analysis_ and click onto the pencil right next to our dataset name we are working on. On the pop-up press the
+the dots and click _Edit_.
 
 ![Edit the Dataset](/images/quicksight/40_QS_edit_dataset.png)
 
-You will see that the fields list has been augmented as our underlying view has been modified. Press <i>Save and Publish</i> and return to our Analysis.
+You will see that the fields list has been augmented as our underlying view has been modified. Press _Save and Publish_ and return to our Analysis.
 Once again, this is exactly the reason why we assign dataset definitions to the database side, not to the client side - keep this in mind as a general rule 
 when designing Data Warehouses.
 
-Now select a <i>Heatmap</i> as a new visual and select <i>PRODUCT_GROUP</i> for the <i>Group By</i> and <i>PRICE</i> and <i>AMOUNT</i> for the
+Now select a _Heatmap_ as a new visual and select _PRODUCT_GROUP_ for the _Group By_ and _PRICE_ and _AMOUNT_ for the
 size and color metrics. Re-organize the visuals on the canvas and save it again as a new version. However, if you want to stay with the current version,
-analysis has been autosaved - nothing to do. Click on the <i>Share</i> icon in the upper right corner to publish our Analysis as a Dashboard. It should
+analysis has been autosaved - nothing to do. Click on the _Share_ icon in the upper right corner to publish our Analysis as a Dashboard. It should
 look similar to the one below:
 
 ![Insights](/images/quicksight/16f_QS_final_dashboard.png)
@@ -129,9 +129,9 @@ look similar to the one below:
 
 Congratulations, you have created your first anaylsis in AWS QuickSight with different visualizations, filters and insights. You should see the benefit
 from defining datasets on the database instead of defining them within the client tool, regardless of the vendor. 
-While we defined the <i>CITIES</i> table as a remote one using AWS Athena, we are using the <i>CITIES</i> table on the database when we augmented our 
+While we defined the _CITIES_ table as a remote one using AWS Athena, we are using the _CITIES_ table on the database when we augmented our 
 analysis. Feel free to create other visuals based on our simple sales model. If you have finished your work with AWS QuickSight let's continue to the next
-section and see how we can use an autmated <i>Machine Learning</i> approach with AWS SageMaker.
+section and see how we can use an autmated _Machine Learning_ approach with AWS SageMaker.
 
 
 {{% notice warning%}}

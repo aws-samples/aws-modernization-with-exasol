@@ -21,7 +21,7 @@ Here, you will find some sample datasets and analyses that are already created b
 
 
 
-However, Quicksight just let you select one table or one view for a dataset. Complex datasets with joins can only be defined with the <i>Use Custom SQL</i>
+However, Quicksight just let you select one table or one view for a dataset. Complex datasets with joins can only be defined with the _Use Custom SQL_
 option of AWS QuickSight or with an adequate view defined on the underlying database. It is always a good idea to keep the process simple on the client side, 
 therefore we define a view on the database which satisfies our needs. Execute the SQL statement below with your favourite SQL client:
 
@@ -39,7 +39,7 @@ therefore we define a view on the database which satisfies our needs. Execute th
 
 	
 {{% notice info %}}
-There is an important reason why we decide to create views on the database instead of defining complex datasets on the client side. Not only simplicity or performance of the Data Wartehouse implementaion is ruling our design decision, but also the fact that tools for <i>Data Warehouse Automation or Data Warehouse Design</i> implement changes on the database, not on the client application.
+There is an important reason why we decide to create views on the database instead of defining complex datasets on the client side. Not only simplicity or performance of the Data Warehouse implementaion is ruling our design decision, but also the fact that tools for _Data Warehouse Automation or Data Warehouse Design_ implement changes on the database, not on the client application.
 {{% /notice %}}
 
 {{% notice info %}}
@@ -48,7 +48,7 @@ letters. If, for whatever reason, field or object names are in lower case letter
 an error. If in doubt, it is ok to embed all field or object names in double quotes.
 {{% /notice %}}
 
-Now, we are ready to create datasets in QuickSight. On the left pane, select "Datasets". 
+Now, we are ready to create datasets in QuickSight. On the left pane, select _Datasets_. 
 
 
 ![QS_left_pane_datasets](/images/quicksight/04_QS_left_pane_select_datasets.PNG)
@@ -75,26 +75,26 @@ For the purpose of this workshop, disable (untick) the "Enable SSL" box. Once th
 
 With the Exasol data source successfully connected, you will see a list of available schemas and the respective tables you can choose from. 
 
-After selecting the appropriate schema <i>RETAIL</i>, choose the view "V_SIMPLE_SALES" that holds our data we will analyze. Click on "Select" to proceed.
+After selecting the appropriate schema _RETAIL_, choose the view _V_SIMPLE_SALES_ that holds our data we will analyze. Click on _Select_ to proceed.
 
 ![QS_schema_and_table](/images/quicksight/08_QS_schema_table.png)
 
-Select the "Directly query your data" option to build the dataset using a direct query. This option allows you to leverage the power of Exasol's processing capabilities directly for your analyses.
+Select the _Directly query your data_ option to build the dataset using a direct query. This option allows you to leverage the power of Exasol's processing capabilities directly for your analyses.
 
 ![QS_select_direct_query](/images/quicksight/09_QS_direct_query.png)
 
-Clicking on "Edit/Preview Data",  this action will redirect us to a new window where you can do several things: preview table data, rename columns and descriptions, change data types, add filters, exclude fields, create calculated fields, and add parameters to your dataset.
+Clicking on _Edit/Preview Data_,  this action will redirect us to a new window where you can do several things: preview table data, rename columns and descriptions, change data types, add filters, exclude fields, create calculated fields, and add parameters to your dataset.
 
 ![QS_preview_edit_data](/images/quicksight/10_QS_preview_edit_data.png)
 
-Once you have made the desired changes, click on <i>SAVE & PUBLISH</i> in the upper right corner.
+Once you have made the desired changes, click on _SAVE & PUBLISH_ in the upper right corner.
 
-After saving the modifications, you will see your new dataset, named <i>V_SIMPLE_SALES</i>, listed on the "Datasets" page.
+After saving the modifications, you will see your new dataset, named _V_SIMPLE_SALES_, listed on the _Datasets_ page.
 
 ![QS_new_dataset](/images/quicksight/11_QS_the_new_dataset.png)
 
 
-Click on "SAVE & PUBLISH". After the dataset is saved, click on "CANCEL" to return to the "Datasets" page, where you will see the new dataset added to the list of available datasets. 
+Click on _SAVE & PUBLISH_. After the dataset is saved, click on _CANCEL_ to return to the _Datasets_ page, where you will see the new dataset added to the list of available datasets. 
 
 CONGRATULATIONS! You have now created a new dataset from your Exasol data! Keep in mind that this datasets combines data from two different sources, the
 virtual schema we have created earlier with data stored in a S3 bucket and from data stored on the database itself.

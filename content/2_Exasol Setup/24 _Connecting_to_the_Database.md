@@ -16,7 +16,7 @@ Start the application and create a new database connection to Exasol. Enter the 
 
 ![Error message while connectiong to Exasol](/images/exasol/01_05_error_connection_to_db.png)
 
-The error message instructs you to change the hostname to a version with a lengthy fingerprint. Optionally, copy the “fingerprint” string after “your server's IP address or fully qualified hostname” followed by a "/"; or paste it into the “Certificate Fingerprint” field and try to connect again (without the <i>:</i> and the port number, which both is also not part of the fingerprint). 
+The error message instructs you to change the hostname to a version with a lengthy fingerprint. Optionally, copy the “fingerprint” string after “your server's IP address or fully qualified hostname” followed by a "/"; or paste it into the “Certificate Fingerprint” field and try to connect again (without the __:__ and the port number, which both is also not part of the fingerprint). 
 
 ![Adding fingerprint to connection settings](/images/exasol/01_06_adding_fingerprint.png)
 

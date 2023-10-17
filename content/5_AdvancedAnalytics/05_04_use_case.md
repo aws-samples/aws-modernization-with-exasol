@@ -8,17 +8,17 @@ weight: 5
 ## Use Case
 
 
-For our selected use case <i>Credit Applications</i> we will train a model which should predict if credit payments will fail partialy or in total, based on some attributes of an individual person - describing the personal situation of the applicant. For the purpose this workshop the dataset has been <b>simplified</b> significantly by removing various attributes from the data set.
+For our selected use case _Credit Applications_ we will train a model which should predict if credit payments will fail partialy or in total, based on some attributes of an individual person - describing the personal situation of the applicant. For the purpose this workshop the dataset has been **simplified** significantly by removing various attributes from the data set.
 
 {{% notice info %}}
-The simplication of the source data will have an impact with regards to prediction quality. We have decided to prioritize <i>ease-of-use</i> over
+The simplication of the source data will have an impact with regards to prediction quality. We have decided to prioritize _ease-of-use_ over
 prediction quality.
 {{% /notice %}}
 
 
 ### Prepare the Data Upload
 
-Before we can load the data, create a table in the <i>CREDIT</i> schema for the overall data set. We will derive smaller datasets for the training and test phases from it in later steps:
+Before we can load the data, create a table in the _CREDIT_ schema for the overall data set. We will derive smaller datasets for the training and test phases from it in later steps:
 
 	CREATE TABLE "TRAIN" (
 		"SK_ID_CURR" BIGINT, 
@@ -41,18 +41,18 @@ Before we can load the data, create a table in the <i>CREDIT</i> schema for the 
 		DISTRIBUTE BY "SK_ID_CURR"
 	);
 
-Load the dataset with the following command into the table <i>TRAIN</i>
+Load the dataset with the following command into the table _TRAIN_
 
 	IMPORT INTO TRAIN FROM CSV AT S3_EXASOL_DATA 
 	FILE 'SOURCE_DATA/CREDIT_APPLICATION/CREDIT_DATA.csv'
 	
-This is the same connection we have used previously to load the <i>RETAIL</i> data for testing the Exasol database deployment.
+This is the same connection we have used previously to load the _RETAIL_ data for testing the Exasol database deployment.
 
 
 ### Create the Datasets
 
 First of all we create training sets of 50.000, 100.000 and 200.000 records in size. We will simply select the first n-th records from 
-the <i>TRAIN</i> table:
+the _TRAIN_ table:
 
 	CREATE OR REPLACE VIEW TRAIN_50K AS (
 		SELECT * 
@@ -77,7 +77,7 @@ the <i>TRAIN</i> table:
 		
 While we use the smallest training set for this workshop, feel free to experiment with larger data sets, too. Furthermore, we need to create at least one test
 set - for the purpose of this workshop we keep it small. Again, feel free to create bigger test sets. We are using the same strategy as before, but start from the 
-end of the <i>TRAIN</i> table:
+end of the _TRAIN_ table:
 
 	CREATE OR REPLACE VIEW TEST_500 AS (
 		SELECT *
@@ -99,11 +99,11 @@ When you execute the SQL command to train a model, the Exasol SageMaker-Extensio
 ### SME Training
 
 	
-The following command exports the <i>TRAIN</i> table in the <i>CREDIT</i> schema using the credentials stored in your previously created connection to your personal S3 bucket,  into a given directory, and enables <i>SageMaker Autopilot</i> to start a job. Please note that the job name must be unique to the corresponding account, and it is case-insensitive. In addition, the maximum number of candidate models is in our case limited to 2 models by an optional parameter called max_candidates. On the other side, the other optional parameters that are not set in this sample SQL command such as problem_type, objective ... etc. will be inferenced by Autopilot. For more information please check the User Guide at
+The following command exports the _TRAIN_ table in the _CREDIT_ schema using the credentials stored in your previously created connection to your personal S3 bucket,  into a given directory, and enables _SageMaker Autopilot_ to start a job. Please note that the job name must be unique to the corresponding account, and it is case-insensitive. In addition, the maximum number of candidate models is in our case limited to 2 models by an optional parameter called max_candidates. On the other side, the other optional parameters that are not set in this sample SQL command such as problem_type, objective ... etc. will be inferenced by Autopilot. For more information please check the User Guide at
 
 [SageMaker Autopilot Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html)
 
-Execute the SQL command with <i>DBVisualizer</i>
+Execute the SQL command with _DBVisualizer_
  or the SQL client of your choice:
 
 	EXECUTE SCRIPT CREDIT."SME_TRAIN_WITH_SAGEMAKER_AUTOPILOT"(
@@ -120,7 +120,7 @@ Execute the SQL command with <i>DBVisualizer</i>
    		 	"max_candidates"                    : 2
 	 }');
 	 
-This SQL command does not wait for the job to finish after calling Autopilot and completes its execution. The metadata information of the created Autopilot job is saved into the <i>SME_METADATA_AUTOPILOT_JOBS</i> table. You can query this table as follows:
+This SQL command does not wait for the job to finish after calling Autopilot and completes its execution. The metadata information of the created Autopilot job is saved into the _SME_METADATA_AUTOPILOT_JOBS_ table. You can query this table as follows:
 
 	SELECT * 
 	FROM CREDIT."SME_METADATA_AUTOPILOT_JOBS";
@@ -132,7 +132,7 @@ The execution of the model training can take quite a moment / longer period, dep
 
 ### Poll Training Status
 
-As mentioned in the above section, the training SQL script runs asynchronously. Therefore, you don't have to wait for the training to finish. However, you can poll the status of the Autopilot training job with the polling SQL script provided by <i>Exasol SageMaker-Extension</i>. This SQL command takes the name of the job whose status will be queried, namely JOB_NAME, as input and returns the current status of the job. For more information please check the User Guide. You can execute the polling SQL command as follows:
+As mentioned in the above section, the training SQL script runs asynchronously. Therefore, you don't have to wait for the training to finish. However, you can poll the status of the Autopilot training job with the polling SQL script provided by _Exasol SageMaker-Extension_. This SQL command takes the name of the job whose status will be queried, namely JOB_NAME, as input and returns the current status of the job. For more information please check the User Guide. You can execute the polling SQL command as follows:
 
 	EXECUTE SCRIPT CREDIT."SME_POLL_SAGEMAKER_AUTOPILOT_JOB_STATUS"(
 		'<JOB_NAME>',
@@ -145,11 +145,11 @@ with a similar output like shown below:
 ![Sagemaker Job Status](/images/exasol/05_04_sagemaker_job_status.png)
 
 	
-Hereby, the <i>JOB_STATUS</i> can be one of the following states:
+Hereby, the _JOB_STATUS_ can be one of the following states:
 
 	InProgress | Completed | Failed | Stopping | Stopped
 
-while <i>JOB_SECONDAY_STATUS</i> may display one of the following states:
+while _JOB_SECONDAY_STATUS_ may display one of the following states:
 
 	Starting | AnalyzingData | FeatureEngineering | ModelTuning | MaxCandidatesReached | Failed | Stopped | MaxAutoMLJobRuntimeReached | Stopping | 
 	CandidateDefinitionsGenerated | GeneratingExplainabilityReport | Completed | ExplainabilityError | DeployingModel | ModelDeploymentError
@@ -167,7 +167,7 @@ In order to perform predictions on a trained Autopilot model, one of the methods
 
 ### SME Training
 	
-The following deployment SQL command creates a SageMaker endpoint called <i>ENDPOINT_NAME</i> and deploys the best model of <i>JOB_NAME</i> on it. Please keep in mind, that the <i>ENDPOINT_NAME</i> is also the name of the UDF script generated for the prediction. Furthermore, you can specify a different database schema (DATABASE_PRED_SCHEMA) for the prediction UDF script to be installed than the one in which the scripts of the Exasol SageMaker-Extension project are deployed. For more information please check the User Guide. You can execute the deployment script with the defined variables as follows:
+The following deployment SQL command creates a SageMaker endpoint called _ENDPOINT_NAME_ and deploys the best model of _JOB_NAME_ on it. Please keep in mind, that the _ENDPOINT_NAME_ is also the name of the UDF script generated for the prediction. Furthermore, you can specify a different database schema (DATABASE_PRED_SCHEMA) for the prediction UDF script to be installed than the one in which the scripts of the Exasol SageMaker-Extension project are deployed. For more information please check the User Guide. You can execute the deployment script with the defined variables as follows:
 
 	EXECUTE SCRIPT CREDIT."SME_DEPLOY_SAGEMAKER_AUTOPILOT_ENDPOINT"(
 		'<JobName>',                   // Unique Job_Name
@@ -179,7 +179,7 @@ The following deployment SQL command creates a SageMaker endpoint called <i>ENDP
 		'<your AWS region>'            // AWS region you are working in
 	);
 	
-<b>Remark</b>: Keep the length of the JobName to 16 or less characters.	
+**Remark**: Keep the length of the JobName to 16 or less characters.	
 	 
 You should be able to retrieve the created UDF script for prediction, with the following SQL statement
 
@@ -191,7 +191,7 @@ You should be able to retrieve the created UDF script for prediction, with the f
 	WHERE 	SCRIPT_SCHEMA = 'CREDIT_PREDICTION'
 			AND SCRIPT_TYPE = 'UDF'
 					
-which shows you all defined <i>Sagemaker Autopilot Endpoints</i>:
+which shows you all defined _Sagemaker Autopilot Endpoints_:
 		
 ![UDF function for the Sagemaker Endpoint](/images/exasol/05_06_UDF_for_endpoint.png)
 
@@ -233,15 +233,15 @@ The prediction UDF makes a real-time and synchronous call to the SageMaker endpo
 
 	FROM PREDICTION P JOIN CREDIT.TRAIN T ON P.SK_ID_CURR = T.SK_ID_CURR
 
-You will get the following result set as an answer, obviously because of the limited training set the result is somewhat weak, We remove a substantial number of columns, but for this tutorial we gained ease-of-use. You may compare the results with the <i>PREDICTIONS</i> and <i>TARGET</i> column.
+You will get the following result set as an answer, obviously because of the limited training set the result is somewhat weak, We remove a substantial number of columns, but for this tutorial we gained ease-of-use. You may compare the results with the _PREDICTIONS_ and _TARGET_ column.
 
 ![Prediction Result](/images/exasol/05_05_Prediction_result.png)
 
-To enforce parallel execution of the SQL script with its so-called UDF function you need to add (as shown in the SQL statement) a <i>GROUP BY iproc()</i>
+To enforce parallel execution of the SQL script with its so-called UDF function you need to add (as shown in the SQL statement) a _GROUP BY iproc()_
 clause which forces Exasol to distribute the execution of the function to all available cluster nodes.
 
 
-Obviously, we are interested in the quality of the model we just trained. We can build a simple <i>Confusion Matrix</i> to see how good the model performs:
+Obviously, we are interested in the quality of the model we just trained. We can build a simple _Confusion Matrix_ to see how good the model performs:
 
 	WITH PREDICTION AS (
 
