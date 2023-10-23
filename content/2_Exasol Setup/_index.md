@@ -21,11 +21,10 @@ areas e.g., hardening a deployment.
 The successful deployment of an Exasol Database deployment includes several steps including basic tests, which we will fullfil by a 
 not too complex SQL statement: 
 
-<ol>
-    <li>Install the Exasol Deployment Tool</li>
-    <li>Deploy an Exasol two-node cluster environment</li>
-    <li>Loading data into Exasol database natively</li>
-	<li>Testing the Deployment</li>
-    <li>Loading data into Exasol database with AWS Glue (optionally)</li>
-	<li>Troubleshooting (if required)</li>
-</ol>
+
+- Install the Exasol Deployment Tool
+- Deploy an Exasol two-node cluster environment
+- Loading data into Exasol database natively-
+- Testing the Deployment
+- Loading data into Exasol database with AWS Glue (optionally)
+- Troubleshooting (if required)

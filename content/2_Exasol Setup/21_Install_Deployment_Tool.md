@@ -10,13 +10,13 @@ weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 # Exasol Deployment Tool
 
 The deployment of an Exasol Database Cluster is a fully automated approach, where you specify installation attributes the deployment tool acts on.
-It is nearly the same effort to configure a simple two-node cluster or a powerful 10-node cluster with so-called <i>StandBy-Nodes</i> and <i>Access-Node</i>.
+It is nearly the same effort to configure a simple two-node cluster or a powerful 10-node cluster with so-called _StandBy-Nodes_ and _Access-Node_.
 
 
 
 ## Installing the Deployment Tool
 
-Download and install the <i>Exasol Deployment Tool (c4)</i>:
+Download and install the _Exasol Deployment Tool (c4)_:
 
 	wget https://x-up.s3.amazonaws.com/releases/c4/linux/x86_64/latest/c4 -O c4
 
@@ -31,7 +31,7 @@ Start the tool to check if it was installed correctly:
 You should see a help page for the tool.
 
 
-Before we can test the deployment of <i>c4</i> in conjunction with <i>aws</i> we need to create a deployment config file. Follow the steps
+Before we can test the deployment of _c4_ in conjunction with _aws_ we need to create a deployment config file. Follow the steps
 to create the configuration:
 
 	mkdir ~/.ccc 
@@ -42,7 +42,7 @@ and check with
 
 for a successful creation of the directory.
 
-Create a config file named <i>config</i> in the previously created directory as follows:
+Create a config file named _config_ in the previously created directory as follows:
 
 	CCC_USER_EMAIL=<your email address>
 	CCC_PLAY_ACCESS_NODE=false

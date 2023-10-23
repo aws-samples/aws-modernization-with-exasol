@@ -6,7 +6,7 @@ weight: 5
 
 ## Introduction to Sagemaker Extension
 
-With the use case of <i>Predictions for Credit Application Risks</i> we want to introduce you <i>Machine Learning</i> with the <i>AWS Sagemaker Autopilot</i>
+With the use case of _Predictions for Credit Application Risks_ we want to introduce you _Machine Learning_ with the _AWS Sagemaker Autopilot_
 service, where we show how to develop and utilize an end-to-end machine learning project on data stored in Exasol using the AWS SageMaker Autopilot service as 
 the backend for Machine Learning.
 
@@ -17,13 +17,12 @@ AWS SageMaker is an AWS public cloud service in which users can build and deploy
 
 Autopilot covers a complete pipeline of developing an end-to end machine learning project, from raw data to a deployable model. It is able to automatically build, train and tune a number of machine learning models by inspecting your data set. In this way, the following tasks, which are repeatedly applied by ML-experts in machine learning projects, are automated:
 
-<ol>
-	<li>Pre-process and clean the data</li>
-	<li>Perform feature engineering and select the most appropriate ones</li>
-	<li>Determine the most appropriate ML algorithm</li>
-	<li>Tune and optimize hyper-parameters of model</li>
-	<li>Post-process machine learning models</li>
-</ol>
+
+- Pre-process and clean the data
+- Perform feature engineering and select the most appropriate ones
+- Determine the most appropriate ML algorithm
+- Tune and optimize hyper-parameters of model
+- Post-process machine learning models
 
 The Exasol Sagemaker Extension takes these advantages of AWS Autopilot and enables users to easily create effective and efficient machine learning models without expert knowledge.
 
@@ -43,7 +42,7 @@ In case of enabled Multi-Factor-Authentication for your user please mind the fol
 	https://github.com/exasol/sagemaker-extension/issues/90
 	
 
-In AWS <b>I</b>dentiy and <b>A</b>ccess <b>M</b>anagemnt (IAM) create a role named
+In AWS **I**dentiy and **A**ccess **M**anagemnt (IAM) create a role named
 
 	sagemaker-role
 	
@@ -79,7 +78,7 @@ and name it sagemaker-s3-access. For the second policy for this role search for 
 	AmazonSageMakerFullAccess
 	
 	
-Finally attach the policies to the sagemaker-role with the <i>aws</i> tool on the Deployment Server:
+Finally attach the policies to the sagemaker-role with the _aws_ tool on the Deployment Server:
 
 	aws iam attach-role-policy --role-name sagemaker-role --policy-arn arn:aws:iam::166283903643:policy/sagemaker-s3-access
 	aws iam attach-role-policy --role-name sagemaker-role --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
@@ -90,7 +89,7 @@ The following workaround should be only utilized in case of an unresovable behav
 training job (later in this tutorial)
 {{% /notice %}}
 
-Create new user account named <i>Sagemaker Account</i> and create for this account the neccessary AWS Access Key. Attach the following
+Create new user account named _Sagemaker Account_ and create for this account the neccessary AWS Access Key. Attach the following
 policy directly to this user account.
 
 	{

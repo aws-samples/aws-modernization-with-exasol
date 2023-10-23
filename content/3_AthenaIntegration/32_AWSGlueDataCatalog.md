@@ -27,18 +27,16 @@ Choose “Add database”, enter a database name and finally click on the “Cre
 
 There exist several options to create a data catalog table in AWS Athena:
 
-<ol>
-	<li>AWS Glue Table Wizard</li>
-	<li>AWS Glue Crawler</li>
-	<li>AWS Athena DDL Statement</li>
-</ol>
+- AWS Glue Table Wizard
+- AWS Glue Crawler
+- AWS Athena DDL Statement
 
-For the purpose of this workshop we will concentrate on using the <i>Table Wizard</i> approach. For the other approaches you will find example steps at the end of this chapters as a reference - in section <i>Appendix</i>. Whichever method you choose. Table Wizard offers the easiest way to create tables in the AWS Glue data catalog.
+For the purpose of this workshop we will concentrate on using the _Table Wizard_ approach. For the other approaches you will find example steps at the end of this chapters as a reference - in section _Appendix_. Whichever method you choose. Table Wizard offers the easiest way to create tables in the AWS Glue data catalog.
 
 
 ### Creating data catalog table using "Table Wizard"
 
-Just choose “Table” from the left-side menu and follow the instructions. The following screenshots give a small impression of how the creation of a simple CSV table could look like. Give the table the very same name as the file name, except for the <i>.csv</i>
+Just choose “Table” from the left-side menu and follow the instructions. The following screenshots give a small impression of how the creation of a simple CSV table could look like. Give the table the very same name as the file name, except for the _.csv_
 
 ![Table Wizard](/images/athena/32_3_Table_Wizard.png)
 
@@ -49,7 +47,7 @@ After specifing a table name you have to add the schema, add the nine rows of th
 ![Add schema entry](/images/athena/03_04_adding_schema_to_table.png)
 
 Finish the wizard. As a result, you have a new table in the previously created database. If you go back to the tables' list in AWS Glue and click
-<i>Table Data</i> for your table, you should see that <i>AWS Athena</i> can query the table and display the table's content.
+_Table Data_ for your table, you should see that _AWS Athena_ can query the table and display the table's content.
 
 
 
