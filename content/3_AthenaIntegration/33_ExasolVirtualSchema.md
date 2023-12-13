@@ -126,14 +126,17 @@ steps as shown earlier:
 	
 followed by
 
-	confd_client -c bucket_create -a '{ bucket_name: jars, bucketfs_name: bfsdefault, public: True, read_password: abcd1234, write_password: abcd1234 }'
+	confd_client -c bucket_add -a '{ bucket_name: jars, bucketfs_name: bfsdefault, public: True, read_password: abcd1234, write_password: abcd1234 }'
 	
 end
 
 	exit
 	
-You now have created a new bucket, named _jars_, where we can store our java archive files.
-	
+You now have created a new bucket, named _jars_, where we can store our java archive files:
+
+	curl -k -X PUT -T virtual-schema-dist-9.0.3-athena-2.0.0.jar \ 
+	     https://w:abcd1234@<IP from first cluster node>:2581/jars/virtual-schema-dist-9.0.3-athena-2.0.0.jar
+
 We have the JDBC driver for Athena, which we need for a virtual schema, already installed in the previous step. We do not need to install it again.
 We just need to reference it accordingly, which we will do in the next step...
 
